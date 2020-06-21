@@ -49,8 +49,10 @@ suite('Unit Tests', function(){
     });
     
     test('No Numerical Input', function(done) {
+      var input = 'gal'
+      assert.equal(convertHandler.getNum(input), 1)
       
-      //done();
+      done();
     }); 
     
   });
@@ -58,9 +60,10 @@ suite('Unit Tests', function(){
   suite('Function convertHandler.getUnit(input)', function() {
     
     test('For Each Valid Unit Inputs', function(done) {
-      var input = ['gal','l','mi','km','lbs','kg','GAL','L','MI','KM','LBS','KG'];
-      input.forEach(function(ele) {
-        //assert
+      var units = ['gal','l','mi','km','lbs','kg','GAL','L','MI','KM','LBS','KG'];
+      units.forEach(function(ele) {
+        var input = '1' + ele
+        assert.equal(convertHandler.getUnit(input))
       });
       done();
     });
