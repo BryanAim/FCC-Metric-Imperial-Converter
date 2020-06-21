@@ -69,8 +69,10 @@ suite('Unit Tests', function(){
     });
     
     test('Unknown Unit Input', function(done) {
+      var input = '5kilogramsss'
+      assert.equal(convertHandler.getUnit(input), 'invalid unit input')
       
-      //done();
+      done();
     });  
     
   });
