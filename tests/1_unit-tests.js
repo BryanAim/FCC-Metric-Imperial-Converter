@@ -114,8 +114,11 @@ suite('Unit Tests', function(){
     });
     
     test('L to Gal', function(done) {
+      var input = [10, 'L'];
+      var expected = 2.64172;
+      assert.approximately(convertHandler.convert(input[0], input[1]), expected, 0.1)
       
-      //done();
+      done();
     });
     
     test('Mi to Km', function(done) {
