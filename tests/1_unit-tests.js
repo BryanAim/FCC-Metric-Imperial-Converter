@@ -23,8 +23,10 @@ suite('Unit Tests', function(){
     });
     
     test('Decimal Input', function(done) {
+      var input = '3.1mi';
+      assert.equal(convertHandler.getNum(input), 3.1)
       
-      //done();
+      done();
     });
     
     test('Fractional Input', function(done) {
