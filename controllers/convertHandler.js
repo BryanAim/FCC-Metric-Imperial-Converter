@@ -144,8 +144,30 @@ function ConvertHandler() {
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
-    var result;
+    const validDecimal = /^(\d+\.\d+)$/;
+    let roundNum;
+    let result;
+
+    // if returnNum is a decimal, & if the decimal number.length>6
+    //round the number to 5 decimal places
     
+    if (validDecimal.test(returnNum)) {
+      let separate = returnNum.toString().split('.');
+      if (separate[1] > 5) {
+        roundNum = parseFloat(returnNum).toFixed(5);
+      }
+    }
+    
+    if (returnNum=='invalid number'&& returnUnit == 'invalid unit') {
+      result = 'invalid number and unit'
+    } else if(returnNum=='invalid number') {
+      result = 'invalid number'
+    } else if (returnUnit=='invalid unit') {
+      result ='invalid unit'
+    } else {
+      result = initNum + ' ' + this.spellOutUnit(initUnit) + ' converts to ' + roundNum + ' ' + this.spellOutUnit(returnUnit);
+    }
+
     return result;
   };
   
