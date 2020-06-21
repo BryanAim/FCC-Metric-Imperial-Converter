@@ -130,8 +130,10 @@ suite('Unit Tests', function(){
     });
     
     test('Km to Mi', function(done) {
-      
-      //done();
+      var input = [10, 'km'];
+      var expected = 6.21373;
+      assert.approximately(convertHandler.convert(input[0], input[1]), expected, 0.1)
+      done();
     });
     
     test('Lbs to Kg', function(done) {
