@@ -38,11 +38,23 @@ function ConvertHandler() {
     
     return result;
   };
+
   
   this.getUnit = function(input) {
-    var result;
-    
-    return result;
+    let units = ['gal', 'l', 'lbs', 'kg', 'mi', 'km'];
+
+    let unitLetter = input.split(/([a-zA-Z]+$)/); // split letters from numbers
+    unitLetter = unitLetter.filter(Boolean); //remove whitespace
+    let inputUnit = unitLetter[unitLetter.length - 1];
+
+    // if no units match units in array,
+    // return invalid unit
+    let unit = inputUnit.toLowerCase();
+    if (!units.includes(unit)) {
+      return 'invalid unit';
+    }
+    return inputUnit;
+
   };
   
   this.getReturnUnit = function(initUnit) {
