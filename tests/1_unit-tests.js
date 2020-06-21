@@ -122,8 +122,11 @@ suite('Unit Tests', function(){
     });
     
     test('Mi to Km', function(done) {
+      var input =[3, 'mi'];
+      var expected = 4.82802;
+      assert.approximately(convertHandler.convert(input[0], input[1]), expected, 0.1)
       
-      //done();
+      done();
     });
     
     test('Km to Mi', function(done) {
