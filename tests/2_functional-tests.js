@@ -34,7 +34,17 @@ suite('Functional Tests', function() {
       });
       
       test('Convert 32g (invalid input unit)', function(done) {
-        
+        chai.request(server)
+        .get('/api/convert')
+        .query({input: '32g'})
+        .end((err, res)=>{
+          assert.equal(res.status, 200);
+          assert.equal(res.body.initNum, 32);
+          assert.equal(res.body.initUnit, 'invalid unit');
+          assert.equal(res.body.returnNum, 32);
+          assert.equal(res.body.returnUnit, 'invalid unit');
+          done();
+        })
         //done();
       });
       
