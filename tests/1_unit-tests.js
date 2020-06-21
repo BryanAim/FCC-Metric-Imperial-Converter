@@ -63,7 +63,7 @@ suite('Unit Tests', function(){
       var units = ['gal','l','mi','km','lbs','kg','GAL','L','MI','KM','LBS','KG'];
       units.forEach(function(ele) {
         var input = '1' + ele
-        assert.equal(convertHandler.getUnit(input))
+        assert.equal(convertHandler.getUnit(input), ele)
       });
       done();
     });
