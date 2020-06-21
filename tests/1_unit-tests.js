@@ -43,8 +43,9 @@ suite('Unit Tests', function(){
     });
     
     test('Invalid Input (double fraction)', function(done) {
-      
-      //done();
+      var input = '3/7/2kg'
+      assert.equal(convertHandler.getNum(input), 'invalid number')
+      done();
     });
     
     test('No Numerical Input', function(done) {
