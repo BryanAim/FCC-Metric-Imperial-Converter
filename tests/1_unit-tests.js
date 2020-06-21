@@ -30,8 +30,10 @@ suite('Unit Tests', function(){
     });
     
     test('Fractional Input', function(done) {
+      var input = '1/2gal'
+      assert.equal(convertHandler.getNum(input), 0.5)
       
-      //done();
+      done();
     });
     
     test('Fractional Input w/ Decimal', function(done) {
