@@ -9,7 +9,32 @@
 function ConvertHandler() {
   
   this.getNum = function(input) {
-    var result;
+    let units = ['gal','l','lbs','kg','mi', 'km'];
+    let validFraction = /^([1-9]\d*(\.\d+)?)[/](\d+(\.\d+)?)$/; //regex match fractions
+    let validDecimal = /^\d+(\.\d+)?$/; //regex to match decimals
+
+    let number = input.split(/([a-zA-Z]+$)/); // split letters from numbers
+    number = number.filter(Boolean) // remove whitespace
+
+    let result= number[0];
+    // is a number is a valid decimal || number,
+    // return number
+    if (validDecimal.test(result)) {
+      result = Number(number[0])
+      //if a number is a fraction, split 2 numbers between division sign and return fraction
+    } else if (validFraction.test(result)) {
+      let separate = result.split('/');
+      let fraction = Number(separate[0]) / Number(separate[1]);
+      result = fraction
+
+      //if first index of split array is one of the units,
+      // return number with 1
+
+    } else if (units.includes(result)) {
+      result = 1;
+    } else {
+      result = 'invalid number'
+    }
     
     return result;
   };
