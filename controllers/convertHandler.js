@@ -84,13 +84,28 @@ function ConvertHandler() {
       default:
         result = 'invalid unit'
         break;
-    }
-    
+    } 
     return result;
   };
 
+
   this.spellOutUnit = function(unit) {
     var result;
+    let units = unit.toLowerCase();
+    let obj = {
+      'gal': 'gallons',
+      'l': 'litres',
+      'lbs': 'pounds',
+      'kg': 'kilograms',
+      'mi': 'miles',
+      'km': 'kilometers'
+    }
+
+    for(let props in obj) {
+      if (props==units) {
+        result = obj[props];
+      }
+    }
     
     return result;
   };
