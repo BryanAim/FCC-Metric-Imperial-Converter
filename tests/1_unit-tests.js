@@ -37,8 +37,9 @@ suite('Unit Tests', function(){
     });
     
     test('Fractional Input w/ Decimal', function(done) {
-      
-      //done();
+      var input = '5.4/3lbs'
+      assert.equal(convertHandler.getNum(input), 1.8)
+      done();
     });
     
     test('Invalid Input (double fraction)', function(done) {
