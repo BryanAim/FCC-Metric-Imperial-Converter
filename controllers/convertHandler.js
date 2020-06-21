@@ -54,11 +54,37 @@ function ConvertHandler() {
       return 'invalid unit';
     }
     return inputUnit;
-
   };
+
   
   this.getReturnUnit = function(initUnit) {
+
     var result;
+    let unit = initUnit.toLowerCase();
+    switch (unit) {
+      case 'gal':
+        result = 'L'; 
+        break;
+        case 'l':
+          result = 'gal';
+          break;
+        case 'lbs':
+          result = 'kg';
+          break;
+        case 'kg':
+          result = 'lbs';
+          break;
+        case 'mi':
+          result = 'km';
+          break;
+        case 'km':
+          result = 'mi';
+          break
+    
+      default:
+        result = 'invalid unit'
+        break;
+    }
     
     return result;
   };
